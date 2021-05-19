@@ -52,7 +52,10 @@ Inspect the custom variable values in top-level TF [file](main.tf), changing as 
 
 Finally, run `$ terraform apply` to create the MWAA environment.
 
-![MWAA Environment](/Users/tmarburger/Desktop/mwaa_shot.png "MWAA Environment")
+<br>
 
+![MWAA Environment](.images/mwaa_shot.png "MWAA Environment")
+
+<br>
 
 If there are any misconfigurations, AWS provide a very useful tool to check for proper MWAA environment configurations [here](https://github.com/awslabs/aws-support-tools/tree/master/MWAA).
