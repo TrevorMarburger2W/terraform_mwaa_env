@@ -50,4 +50,9 @@ export TF_VAR_mwaa_exec_role="{IAM_ROLE_TO_EXECUTE_AIRFLOW}"
 
 Inspect the custom variable values in top-level TF [file](main.tf), changing as needed to accomodate VPC and subnet CIDR ranges, AWS Region, S3 bucket name, etc.
 
-Finally, run `$ terraform apply` to create the MWAA environment.  If there are any misconfigurations, AWS provide a very useful tool to check for proper MWAA environment configurations [here](https://github.com/awslabs/aws-support-tools/tree/master/MWAA).
+Finally, run `$ terraform apply` to create the MWAA environment.
+
+![MWAA Environment](/Users/tmarburger/Desktop/mwaa_shot.png "MWAA Environment")
+
+
+If there are any misconfigurations, AWS provide a very useful tool to check for proper MWAA environment configurations [here](https://github.com/awslabs/aws-support-tools/tree/master/MWAA).
