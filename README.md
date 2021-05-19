@@ -4,14 +4,12 @@
 <br>
 
 ## About AWS MWAA
-<hr>
 
 Apache Airflow has been used for years to orchestrate workflows and data pipelines.  In late 2020, Amazon Web Services realeased [Managed Workflows for Apache Airflow](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html) (MWAA) to provide a serverless, managed method to quickly spin up an Airflow environment.
 
 <br>
 
 ## About This Repo
-<hr>
 
 The MWAA service requires additional AWS resources for its launch and operation. In the Console, an environment can be quickly created, and these services are provisioned in the process.  This process becomes somewhat convoluted with AWS-supplied CloudFormation templates & even moreso undocumented in Terraform.
 
@@ -36,7 +34,6 @@ This repository provides Terraform modules to launch all necessary AWS resources
 <br>
 
 ## Running the Terraform Modules
-<hr>
 
 To get started, clone this repository on the machine that will be running Terraform & run  `$ terraform init` to initialize the project.
 
@@ -50,12 +47,14 @@ export TF_VAR_mwaa_exec_role="{IAM_ROLE_TO_EXECUTE_AIRFLOW}"
 
 Inspect the custom variable values in top-level TF [file](main.tf), changing as needed to accomodate VPC and subnet CIDR ranges, AWS Region, S3 bucket name, etc.
 
-Finally, run `$ terraform apply` to create the MWAA environment.
+Finally, run `$ terraform apply` to create the MWAA environment.  Navigate to the MWAA Service in the AWS Console and look for the environment just created - to open the Airflow UI, select the _Open Airflow UI_ link as shown in the figure below.
 
 <br>
 
 ![MWAA Environment](.images/mwaa_shot.png "MWAA Environment")
 
 <br>
+
+In order to add/update DAGs, upload DAG files to the folder specified in the _storage_ [module](main.tf#L22-L23).  All valid DAGs will be picked up by the managed Airflow service within about 30 seconds, per the AWS [documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html#configuring-dag-folder-how).
 
 If there are any misconfigurations, AWS provide a very useful tool to check for proper MWAA environment configurations [here](https://github.com/awslabs/aws-support-tools/tree/master/MWAA).
