@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "mwaa_bucket" {
   }
 }
 
-resource "aws_s3_bucket_public_access_block" "example" {
+resource "aws_s3_bucket_public_access_block" "pub_access_block" {
   bucket = aws_s3_bucket.mwaa_bucket.id
 
   block_public_acls       = true
@@ -19,7 +19,7 @@ resource "aws_s3_bucket_public_access_block" "example" {
 resource "aws_s3_bucket_object" "folder1" {
     bucket = "${var.bucket_name}"
     acl    = "private"
-    key    = "dags/"
+    key    = "${var.dag_path}"
     depends_on = [
       aws_s3_bucket.mwaa_bucket
     ]

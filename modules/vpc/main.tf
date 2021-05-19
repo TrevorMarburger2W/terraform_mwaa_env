@@ -23,7 +23,7 @@ resource "aws_internet_gateway" "mwaa_igw" {
 # Public Subnet 1
 resource "aws_subnet" "public_subnet_1" {
   vpc_id     = aws_vpc.mwaa_default_vpc.id
-  cidr_block = "10.192.10.0/24"
+  cidr_block = "${var.pub_subnet_1_cidr}"
   map_public_ip_on_launch = true
   availability_zone = "${var.aws_region}a"
 
@@ -39,7 +39,7 @@ resource "aws_subnet" "public_subnet_1" {
 # Public Subnet 2
 resource "aws_subnet" "public_subnet_2" {
   vpc_id     = aws_vpc.mwaa_default_vpc.id
-  cidr_block = "10.192.11.0/24"
+  cidr_block = "${var.pub_subnet_2_cidr}"
   map_public_ip_on_launch = true
   availability_zone = "${var.aws_region}b"
 
@@ -55,7 +55,7 @@ resource "aws_subnet" "public_subnet_2" {
 # Private Subnet 1
 resource "aws_subnet" "private_subnet_1" {
   vpc_id     = aws_vpc.mwaa_default_vpc.id
-  cidr_block = "10.192.20.0/24"
+  cidr_block = "${var.priv_subnet_1_cidr}"
   map_public_ip_on_launch = false
   availability_zone = "${var.aws_region}a"
 
@@ -71,7 +71,7 @@ resource "aws_subnet" "private_subnet_1" {
 # Private Subnet 2
 resource "aws_subnet" "private_subnet_2" {
   vpc_id     = aws_vpc.mwaa_default_vpc.id
-  cidr_block = "10.192.21.0/24"
+  cidr_block = "${var.priv_subnet_2_cidr}"
   map_public_ip_on_launch = false
   availability_zone = "${var.aws_region}b"
 

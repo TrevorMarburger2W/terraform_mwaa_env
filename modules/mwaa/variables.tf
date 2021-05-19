@@ -27,9 +27,9 @@ variable "dag_path" {
 
 # Custom Variables
 
-variable "work_env" {
+variable "env_name" {
     type        = string
-    description = "Environment ex.: dev/prod"
+    description = "Environment Name"
 }
 
 variable "sec_group_id" {

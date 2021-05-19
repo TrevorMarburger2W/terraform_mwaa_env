@@ -1,5 +1,5 @@
 resource "aws_mwaa_environment" "mwaa_env_1" {
-  name               = "mwaa_env_${var.work_env}_1"
+  name               = "${var.env_name}"
   source_bucket_arn  = "${var.bucket_arn}"
   dag_s3_path        = "${var.dag_path}"
   execution_role_arn = "${var.execution_role}"
